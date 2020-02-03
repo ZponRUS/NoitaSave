@@ -27,6 +27,9 @@ def load(save_path):
         arg = len(list_saves)
     if arg > len(list_saves):
         arg = len(list_saves)
+    if "HERE SAVES DIR" in list_saves:
+        list_saves.remove("HERE SAVES DIR")
+        arg -= 1
     shutil.rmtree(save_path)
     os.mkdir(save_path)
     copytree( "saves/"+list_saves[arg-1], save_path )
